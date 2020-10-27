@@ -1,5 +1,5 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from "react";
+import ReactDOM from "react-dom";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
         enable "Current Module View" in codesandbox. Like this:
         <img
           alt="current module view"
-          style={{maxWidth: 600, width: '90vw', display: 'block'}}
+          style={{ maxWidth: 600, width: "90vw", display: "block" }}
           src="/current-module-view.png"
         />
         This will make Codesandbox render the component that is the "default
@@ -27,11 +27,14 @@ function App() {
       <h2>How to contribute</h2>
       <p>
         You can contribute your own example! First, make your own copy of this
-        codesandbox by clicking the "Fork" button at the top. Then make the
-        changes you want to make, and then click the "GitHub"
+        codesandbox by clicking the "Fork" button at the top. Then make and save
+        the changes you want to make, and then click the "GitHub" icon to make a
+        pull request.{" "}
+        <a href="https://youtu.be/3PAQbhdkTtI?t=367">This video</a> might help a
+        bit. Thanks!
       </p>
     </div>
-  )
+  );
 }
 
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render(<App />, document.getElementById("root"));
