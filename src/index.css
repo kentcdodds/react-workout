@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter";
+}
+
+.container {
+  max-width: 900px;
+  width: 90%;
+  margin: 0 auto;
+  line-height: 1.3;
+}
+
+.img {
+  max-width: 600px;
+  width: 90vw;
+  display: block;
+  margin: 2rem auto;
+  border: 2px solid hotpink;
+}
+
+.pretty-link {
+  text-decoration: none;
+  color: slateblue;
+  position: relative;
+}
+
+.pretty-link::after {
+  content: "";
+  height: 2px;
+  width: 100%;
+  position: absolute;
+  background: slateblue;
+  bottom: 0;
+  left: 0;
+  transform: scaleX(0);
+  transition: transform 250ms ease;
+}
+
+.pretty-link:hover::after {
+  transform: scaleX(1);
+}

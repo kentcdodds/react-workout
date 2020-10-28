@@ -1,9 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+import "./index.css";
+
 function App() {
   return (
-    <div>
+    <div className="container">
       <h1>React Workout</h1>
       <em>Exercises to practice React skillz</em>
       <p>
@@ -17,7 +19,7 @@ function App() {
         enable "Current Module View" in codesandbox. Like this:
         <img
           alt="current module view"
-          style={{ maxWidth: 600, width: "90vw", display: "block" }}
+          className="img"
           src="/current-module-view.png"
         />
         This will make Codesandbox render the component that is the "default
@@ -30,8 +32,10 @@ function App() {
         codesandbox by clicking the "Fork" button at the top. Then make and save
         the changes you want to make, and then click the "GitHub" icon to make a
         pull request.{" "}
-        <a href="https://youtu.be/3PAQbhdkTtI?t=367">This video</a> might help a
-        bit. Thanks!
+        <a className="pretty-link" href="https://youtu.be/3PAQbhdkTtI?t=367">
+          This video
+        </a>{" "}
+        might help a bit. Thanks!
       </p>
     </div>
   );
