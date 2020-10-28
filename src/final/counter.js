@@ -6,11 +6,11 @@ function Counter({initialCount = 0, step = 1}) {
   const decrement = () => setCount(c => c - step)
   return (
     <div>
-      <button onClick={increment}>-</button>
+      <button onClick={decrement}>-</button>
       <span style={{width: 30, display: 'inline-block', textAlign: 'center'}}>
         {count}
       </span>
-      <button onClick={decrement}>+</button>
+      <button onClick={increment}>+</button>
     </div>
   )
 }
