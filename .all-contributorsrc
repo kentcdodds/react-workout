@@ -23,6 +23,16 @@
         "code",
         "doc"
       ]
+    },
+    {
+      "login": "sleepyArpan",
+      "name": "Arpan Chattopadhyay",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/50901152?v=4",
+      "profile": "https://github.com/sleepyArpan",
+      "contributions": [
+        "design",
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
