@@ -1,7 +1,7 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-import "./index.css";
+import './index.css'
 
 function App() {
   return (
@@ -31,14 +31,14 @@ function App() {
         You can contribute your own example! First, make your own copy of this
         codesandbox by clicking the "Fork" button at the top. Then make and save
         the changes you want to make, and then click the "GitHub" icon to make a
-        pull request.{" "}
+        pull request.{' '}
         <a className="pretty-link" href="https://youtu.be/3PAQbhdkTtI?t=367">
           This video
-        </a>{" "}
+        </a>{' '}
         might help a bit. Thanks!
       </p>
     </div>
-  );
+  )
 }
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById('root'))

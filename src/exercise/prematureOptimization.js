@@ -1,52 +1,52 @@
-import * as React from "react";
+import * as React from 'react'
 import {
   OriginalCounter,
-  FixedOptimizedCounter
-} from "../final/prematureOptimization";
+  FixedOptimizedCounter,
+} from '../final/prematureOptimization'
 
 const task = `Oh no! Someone tried to optimize our Counter, but introduced some bugs 🐛
-Can you find and fix them all?`;
+Can you find and fix them all?`
 
-function OptimizedCounter({ items }) {
+function OptimizedCounter({items}) {
   const counterReducer = (state, [type, item]) => {
-    if (type === "inc") {
-      state[item] += 1;
-    } else if (type === "dec") {
-      state[item] -= 1;
+    if (type === 'inc') {
+      state[item] += 1
+    } else if (type === 'dec') {
+      state[item] -= 1
     } else {
-      state[item] = 0;
+      state[item] = 0
     }
-    return { ...state };
-  };
+    return {...state}
+  }
   const [counters, dispatch] = React.useReducer(counterReducer, null, () =>
     items.reduce((acc, i) => {
-      acc[i] = 0;
-      return acc;
-    }, {})
-  );
-  const inc = React.useCallback((item) => () => dispatch(["inc", item]), []);
-  const dec = React.useCallback((item) => () => dispatch(["dec", item]), []);
+      acc[i] = 0
+      return acc
+    }, {}),
+  )
+  const inc = React.useCallback(item => () => dispatch(['inc', item]), [])
+  const dec = React.useCallback(item => () => dispatch(['dec', item]), [])
 
   React.useEffect(() => {
-    dispatch("reset", items);
-  }, [items]);
+    dispatch('reset', items)
+  }, [items])
 
-  return items.map((item) => {
-    const count = counters[item];
+  return items.map(item => {
+    const count = counters[item]
     return (
       <div key={item}>
         {item}: {count}
         <button onClick={dec(item)}>-</button>
         <button onClick={inc(item)}>+</button>
       </div>
-    );
-  });
+    )
+  })
 }
 
 // ---
 
 function Counters() {
-  const [items, setItems] = React.useState(["apples", "oranges"]);
+  const [items, setItems] = React.useState(['apples', 'oranges'])
 
   return (
     <div>
@@ -69,19 +69,19 @@ function Counters() {
 
       <br />
 
-      {items.includes("bananas") ? null : (
+      {items.includes('bananas') ? null : (
         <button
-          onClick={() => setItems((i) => [...i, "bananas"])}
-          style={{ fontSize: "16px", padding: "5px" }}
+          onClick={() => setItems(i => [...i, 'bananas'])}
+          style={{fontSize: '16px', padding: '5px'}}
         >
-          Add bananas{" "}
+          Add bananas{' '}
           <span role="img" aria-label="banana emoji">
             🍌
           </span>
         </button>
       )}
     </div>
-  );
+  )
 }
 
-export default Counters;
+export default Counters
