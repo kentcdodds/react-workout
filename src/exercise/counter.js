@@ -1,5 +1,5 @@
-import * as React from 'react'
-import FinalCounter from '../final/counter'
+import * as React from "react";
+import FinalCounter from "../final/counter";
 
 function Counter() {
   return (
@@ -19,7 +19,7 @@ Here's how the final version works. Build this:
       </pre>
       <FinalCounter />
     </div>
-  )
+  );
 }
 
-export default Counter
+export default Counter;
