@@ -4,7 +4,8 @@ import {
   FixedOptimizedCounter,
 } from '../final/prematureOptimization'
 
-const task = `Oh no! Someone tried to optimize our Counter, but introduced some bugs 🐛
+const task = `Oh no! Someone tried to optimize our Counter without writing regression tests.
+Turns out they introduced some bugs 🐛
 Can you find and fix them all?`
 
 function OptimizedCounter({items}) {
