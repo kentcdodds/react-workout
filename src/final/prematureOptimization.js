@@ -46,11 +46,13 @@ const counterReducer = (state, action) => {
       }
       return newState
     }
-    case 'resetAll': {
-      return action.items.reduce((accumulator, item) => {
-        accumulator[item] = 0
-        return accumulator
-      }, {})
+    case 'sync': {
+      action.items.forEach(item => {
+        if (!newState.hasOwnProperty(item)) {
+          newState[item] = 0
+        }
+      })
+      return newState
     }
     default: {
       console.error('Unrecognized action type:', action.type)
@@ -64,30 +66,30 @@ const useCounter = () => {
   // if we have a useEffect to synchronize state with new items,
   // no need for duplicate lazy initialization
   const [counters, dispatch] = React.useReducer(counterReducer, {})
-  const inc = React.useCallback(item => () => dispatch({type: 'inc', item}), [])
-  const dec = React.useCallback(item => () => dispatch({type: 'dec', item}), [])
-  const resetAll = React.useCallback(
-    items => dispatch({type: 'resetAll', items}),
-    [],
-  )
 
-  return [counters, inc, dec, resetAll]
+  // useCallback is useful to export stable functions that can be used in useEffect
+  const inc = React.useCallback(item => dispatch({type: 'inc', item}), [])
+  const dec = React.useCallback(item => dispatch({type: 'dec', item}), [])
+  const sync = React.useCallback(items => dispatch({type: 'sync', items}), [])
+
+  return [counters, inc, dec, sync]
 }
 
 export function FixedOptimizedCounter({items}) {
-  const [counters, inc, dec, resetAll] = useCounter()
+  const [counters, inc, dec, sync] = useCounter()
 
   React.useEffect(() => {
-    resetAll(items)
-  }, [resetAll, items])
+    sync(items)
+  }, [sync, items])
 
   return items.map(item => {
     const count = counters[item]
     return (
       <div key={item}>
         {item}: {count}
-        <button onClick={dec(item)}>-</button>
-        <button onClick={inc(item)}>+</button>
+        {/* useCallback is not needed for simple handlers */}
+        <button onClick={() => dec(item)}>-</button>
+        <button onClick={() => inc(item)}>+</button>
       </div>
     )
   })
